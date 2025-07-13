@@ -27,9 +27,10 @@ app.use("/api/form", contactRoute);
 
 app.use(errorMiddleware);
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
+
 connectDb().then(() => {
-  app.listen(PORT, () => {
+  app.listen(PORT, '0.0.0.0', () => {
     console.log(`server is running at port: ${PORT}`);
   });
 });
